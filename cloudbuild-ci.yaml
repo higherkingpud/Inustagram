@@ -4,3 +4,4 @@ steps:
       - app
       - deploy
       - app.yaml
+timeout: "7200s"

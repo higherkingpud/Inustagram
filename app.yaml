@@ -1,6 +1,5 @@
 runtime: custom
 env: flex
-service: inustagram
 manual_scaling:
   instances: 1
 resources:
