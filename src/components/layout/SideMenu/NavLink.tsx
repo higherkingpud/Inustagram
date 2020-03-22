@@ -35,7 +35,7 @@ export default ({
             font-size: 36px;
           }
           :hover {
-            background-color: rgba(97, 205, 213, 0.5);
+            background-color: rgba(97, 205, 213, 0.2);
             border-radius: 18px;
           }
         }

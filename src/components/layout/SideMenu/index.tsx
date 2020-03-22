@@ -1,10 +1,11 @@
 import * as React from 'react';
 import PetsIcon from '@material-ui/icons/Pets';
 
+export { default as CreateButton } from './CreateButton';
 export { default as NavLink } from './NavLink';
 
 type Props = {
- children: React.ReactNode;
+  children: React.ReactNode;
 };
 
 export default ({ children }: Props): React.ReactElement => {
@@ -20,7 +21,6 @@ export default ({ children }: Props): React.ReactElement => {
               <div className="side-menu-list">
                 {React.Children.toArray(children)}              
               </div>
-              <div className="side-menu-create-button"></div>
             </div>
           </div>
         </div>

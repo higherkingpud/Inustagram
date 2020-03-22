@@ -8,3 +8,11 @@ export type Photo = {
   userId: number;
   userName: string;
 };
+
+
+export type Dog = {
+  bread: string;
+  iconUrl: string;
+  id: number;
+  name: string;
+};

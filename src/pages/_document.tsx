@@ -55,6 +55,16 @@ export default class MyDocument extends Document {
               display: flex;
               flex-diraction: row;
             }
+            .overlay {
+              background-color: #000;
+              height: 100vh;
+              left: 0;
+              opacity: 0.3;
+              position: absolute;
+              top: 0;
+              width: 100vw;
+              z-index: 2;
+            }
           `}</style>
         </Head>
         <body>
