@@ -2,17 +2,24 @@ import * as React from 'react';
 import { NextPage, NextPageContext } from 'next';
 import fetch from 'isomorphic-unfetch';
 
+import Layout from '../components/layout';
+import Timeline from '../components/layout/Timeline';
 import getAbsoluteUrl from '../utils/getAbsoluteUrl';
 import { Photo } from '../types';
-import Layout from '../components/layout';
+import PhotoCard from '../components/layout/PhotoCard';
 
 type Props = {
   photos: Photo[];
 };
 
-const Index: NextPage<Props> = () => {
+const Index: NextPage<Props> = ({ photos }: Props) => {
   return (
-    <Layout />
+    <>
+      <Layout />
+      <Timeline>
+        {photos.map(p => <PhotoCard {...p} key={p.pid} />)}
+      </Timeline>
+    </>
   );
 };
 

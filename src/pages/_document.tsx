@@ -20,6 +20,9 @@ export default class MyDocument extends Document {
             * {
               box-sizing: border-box;
             }
+            *::-webkit-scrollbar {
+              display: none;
+            }
             html {
               font-size: 15px;
               font-family: 'Noto+Sans+JP' !important;

@@ -1,0 +1,12 @@
+runtime: custom
+env: flex
+service: inustagram
+manual_scaling:
+  instances: 1
+resources:
+  cpu: 1
+  memory_gb: 1
+  disk_size_gb: 20
+env_variables:
+  NODE_ENV: 'production'
+  API_BASE_URL: 'http://34.84.93.244:3000'
