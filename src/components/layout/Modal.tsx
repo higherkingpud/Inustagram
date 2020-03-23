@@ -52,7 +52,7 @@ export default ({
           margin: 0 0 8px 0;
         }
         .btn-modal-close {
-          bottom: 0;
+          top: 1rem;
           border-radius: 1rem;
           background-color: #444;
           color: #fff;

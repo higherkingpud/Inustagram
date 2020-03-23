@@ -20,11 +20,7 @@
     "isolatedModules": true
   },
   "include": [
-    "src/pages/**/*",
-    "layouts/**/*",
-    "src/components/**/*",
-    "src/i18n.ts",
-    "src/hooks/useRollCreation.tsx",
+    "src/pages/**/*"
   ],
   "typeRoots": [
     "node_modules/@types",
