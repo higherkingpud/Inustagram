@@ -1,21 +1,28 @@
 import * as React from 'react';
 
 type Props = {
-  isActive: boolean;
   children: React.ReactNode;
+  height?: string;
+  isActive: boolean;
   onClose: () => void;
+  title: string;
+  width?: string;
 };
 
 export default ({
   children,
+  height = '20rem',
   isActive,
   onClose,
+  title,
+  width = '40rem',
 }: Props): React.ReactElement => {
   return (
     <>
       {isActive && <div className="overlay" />}
       {isActive && (
         <div className="modal">
+          <h3>{title}</h3>
           {children}
           <div
             className="btn-modal-close"
@@ -27,19 +34,22 @@ export default ({
       <style jsx>{`
         .modal {
           background-color: #fff;
-          border-radius: 3px;
+          border-radius: 4px;
           border: 2px solid #444;
           box-shadow: 12px 6px 12px 2px rgba(0, 0, 0, .2), -12px 6px 12px 2px rgba(0, 0, 0, .2);
           top: 0;
           left: 0;
           margin: auto;
-          min-height: 32rem;
-          padding: 3px 1rem;
+          min-height: ${height};
+          padding: 8px 1rem;
           position: fixed;
-          width: 54rem;
+          width: ${width};
           z-index: 200;
           top: 4rem;
-          left: calc((100vw - 52rem) / 2)
+          left: calc((100vw - ${width}) / 2);
+        }
+        h3 {
+          margin: 0 0 8px 0;
         }
         .btn-modal-close {
           bottom: 0;

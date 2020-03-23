@@ -3,6 +3,7 @@ import Head from 'next/head';
 import HomeIcon from '@material-ui/icons/Home';
 
 import Modal from './Modal';
+import PhotoForm from '../form/PhotoForm';
 import SideMenu, { CreateButton, NavLink } from './SideMenu';
 
 export default (): React.ReactElement => {
@@ -16,9 +17,11 @@ export default (): React.ReactElement => {
   return (
     <>
       <Head><title>Inustagram</title></Head>
-      <Modal 
+      <Modal
+        title="新しい写真"
         isActive={isModalActive}
         onClose={onCloseModal}>
+        <PhotoForm />
       </Modal>
       <SideMenu>
         <NavLink
@@ -26,7 +29,7 @@ export default (): React.ReactElement => {
           title="ホーム"
           Icon={HomeIcon}
         />
-        <CreateButton 
+        <CreateButton
           label="写真を追加"
           onClick={onClickNewPhotoButton}
         />

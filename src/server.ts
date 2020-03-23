@@ -27,7 +27,7 @@ const apiBaseUrl = process.env.API_BASE_URL ?? DEFAULT_API_BASE_URL;
   }));
 
   server.use(express.json({ limit: '10mb' }));
-  
+
   server.all('*', (req, res) => {
     const parsedUrl = parse(req.url, true);
     handle(req, res, parsedUrl);

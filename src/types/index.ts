@@ -13,6 +13,6 @@ export type Photo = {
 export type Dog = {
   bread: string;
   iconUrl: string;
-  id: number;
+  did: number;
   name: string;
 };
