@@ -1,25 +1,6 @@
 Inustagram
 =======
 
-Photo library App for Dog.
+Photo library App for Dog. https://sunlit-center-271808.appspot.com/
 
-![shih-tzu](https://user-images.githubusercontent.com/33439268/77206142-a2fcb600-6b39-11ea-96a6-461fb3525ed8.jpg)
-
-Backend [kijimaru/scotty-shih-tzu](https://github.com/kijimaru/scotty-shih-tzu)
-
-## Requirements
-
-- Node.js ^12
-- yarn
-
-## Download & Boot run.
-
-```
-$ git https://github.com/kijimaru/Inustagram.git
-$ yarn
-$ yarn dev
-...
-Ready on http://localhost:8080
-```
-
-In this way, you can access http://localhost:8080
+![screenshot](https://camo.githubusercontent.com/59f1a76613cd804e207b64612f1d600711e8c757/68747470733a2f2f73746f726167652e676f6f676c65617069732e636f6d2f696e757374616772616d2d696d616765732f254533253832254239254533253832254146254533253833254141254533253833254243254533253833254233254533253832254237254533253833254137254533253833253833254533253833253838253230323032302d30332d3234253230322e30372e32352e706e67)
