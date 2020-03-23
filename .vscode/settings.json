@@ -8,4 +8,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "editor.wordWrapColumn": 90,
+  "editor.wordWrap": "wordWrapColumn",
 }

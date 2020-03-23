@@ -3,12 +3,14 @@ import * as React from 'react';
 import DogSelector from './DogSelector';
 import ImageUploader from './ImageUploader';
 import InputText from './InputText';
+import Loading from '../layout/Loading';
 import usePhotoCreation from '../../hooks/usePhotoCreation';
 
 export default (): React.ReactElement => {
   const hook = usePhotoCreation();
   return (
     <>
+      {hook.isSubmitting && <Loading />}
       <DogSelector
         dogs={hook.dogs}
         selectedDogId={hook.dogId}
@@ -23,7 +25,9 @@ export default (): React.ReactElement => {
         image={hook.image}
         onChange={hook.onChangeImage}
       />
-      <div className="btn-submit">
+      <div
+        className="btn-submit"
+        onSubmit={hook.onSubmit}>
         追加
       </div>
       <style jsx>{`
