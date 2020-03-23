@@ -17,6 +17,12 @@ type Props = {
   dogs: Dog[];
 };
 
+const comparePhotoDesc = (b: Photo,a: Photo): 1 | 0 | -1 => {
+  if (a.pid > b.pid) { return 1; }
+  if (a.pid === b.pid) { return 0; }
+  return -1;
+};
+
 const Index: NextPage<Props> = ({
   dogs,
 }: Props) => {
@@ -26,7 +32,9 @@ const Index: NextPage<Props> = ({
       <Layout />
       {photosR.status === Status.Loaded && (
         <Timeline>
-          {photosR.value.map(p => <PhotoCard {...p} key={p.pid} />)}
+          {photosR.value.sort(comparePhotoDesc).map(p =>
+            <PhotoCard {...p} key={p.pid} />
+          )}
         </Timeline>
       )}
       {photosR.status === Status.Loading && (<CircularProgress />)}

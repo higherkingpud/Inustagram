@@ -2,10 +2,9 @@ import fetch from 'isomorphic-unfetch';
 
 export default async (file: File): Promise<string> => {
   const formData = new FormData();
-  formData.append('content', file);
+  formData.append('file', file);
   const res = await fetch('/storage',{
     method: 'POST',
-    headers: { 'Content-Type': file.type },
     body: formData,
   });
   if(res.status === 201) {
