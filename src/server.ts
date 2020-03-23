@@ -11,6 +11,8 @@ const handle = app.getRequestHandler();
 
 const DEFAULT_API_BASE_URL = 'http://34.84.93.244:3000';
 
+const BUCKET_ID = 'inustagram-images';
+
 const apiBaseUrl = process.env.API_BASE_URL ?? DEFAULT_API_BASE_URL;
 
 // By default, the client will authenticate using the service account file
@@ -32,7 +34,7 @@ const multer = Multer({
 });
 
 // A bucket is a container for objects (files).
-const bucket = storage.bucket(process.env.GCLOUD_STORAGE_BUCKET);
+const bucket = storage.bucket(BUCKET_ID);
 
 (async (): Promise<void> => {
   await app.prepare();
