@@ -2,8 +2,7 @@
   "scripts": {
     "dev": "next build && ts-node --project tsconfig.server.json ./src/server",
     "build": "next build && tsc --project tsconfig.server.json",
-    "gcp-build": "./berglas exec -- next build && tsc --project tsconfig.server.json",
-    "start": "./berglas exec -- node ./build/server.js"
+    "start": "node ./build/server.js"
   },
   "name": "inustagram",
   "version": "1.0.0",

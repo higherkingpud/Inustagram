@@ -9,4 +9,4 @@ resources:
 env_variables:
   NODE_ENV: 'production'
   API_BASE_URL: 'http://34.84.93.244:3000'
-  GCLOUD_STORAGE_BUCKET: inustagram-images
+  GCLOUD_STORAGE_BUCKET: 'inustagram-images'
