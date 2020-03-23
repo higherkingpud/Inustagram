@@ -27,7 +27,7 @@ export default (): React.ReactElement => {
       />
       <div
         className="btn-submit"
-        onSubmit={hook.onSubmit}>
+        onClick={hook.onSubmit}>
         追加
       </div>
       <style jsx>{`
