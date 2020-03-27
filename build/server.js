@@ -49,7 +49,7 @@ var util_1 = require("util");
 var url_1 = require("url");
 var app = next_1.default({ dev: process.env.NODE_ENV !== 'production' });
 var handle = app.getRequestHandler();
-var DEFAULT_API_BASE_URL = 'http://34.84.93.244:3000';
+var DEFAULT_API_BASE_URL = 'http://34.85.71.200:3000';
 var BUCKET_ID = 'inustagram-images';
 var apiBaseUrl = (_a = process.env.API_BASE_URL) !== null && _a !== void 0 ? _a : DEFAULT_API_BASE_URL;
 // By default, the client will authenticate using the service account file

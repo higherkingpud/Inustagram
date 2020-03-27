@@ -36,7 +36,7 @@ export default class MyDocument extends Document {
               color: #333;
               font-size: 14px;
               margin: 0;
-              min-width: 1224px;
+              min-width: 800px;
             }
             a {
               text-decoration: none;
