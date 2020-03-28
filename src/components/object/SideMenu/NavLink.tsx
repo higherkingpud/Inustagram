@@ -34,6 +34,9 @@ export default ({
           :global(.MuiSvgIcon-root) {
             font-size: 36px;
           }
+          :global(.svg) {
+            font-size: 36px;
+          }
           :hover {
             background-color: rgba(97, 205, 213, 0.2);
             border-radius: 18px;

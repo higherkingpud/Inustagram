@@ -1,12 +1,14 @@
 import * as React from 'react';
 import PhotoIcon from '@material-ui/icons/Photo';
 
-interface Props {
+type Props = {
+  defaultSrc?: string;
   image?: File;
   onChange: (image: File) => void;
-}
+};
 
 export default ({
+  defaultSrc,
   image,
   onChange,
 }: Props): React.ReactElement => {
@@ -34,10 +36,10 @@ export default ({
   }, [fileRef, onChange]);
   return (
     <>
-      {blobUrl
+      {blobUrl || defaultSrc
         ? <img
           className="flex"
-          src={blobUrl}
+          src={blobUrl ?? defaultSrc}
           onClick={onClick}
           width={360}
         />

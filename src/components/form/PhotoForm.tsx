@@ -34,7 +34,7 @@ export default (): React.ReactElement => {
         .btn-submit {
           bottom: 0;
           border-radius: 1rem;
-          background-color:  #61cdd5;
+          background-color: #61cdd5;
           color: #444;
           width: 7rem;
           height: 2rem;

@@ -19,7 +19,7 @@ export default ({ children }: Props): React.ReactElement => {
                 <PetsIcon />
               </div>
               <div className="side-menu-list">
-                {React.Children.toArray(children)}              
+                {React.Children.toArray(children)}
               </div>
             </div>
           </div>

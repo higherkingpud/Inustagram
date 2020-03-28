@@ -35,10 +35,11 @@ export default ({
         input {
           border-bottom: 1px solid #444;
           border: 0px;
-          font-size: 1rem;
+          font-size: 1.4rem;
           height: 2rem;
           width: 16rem;
-          margin: 1rem 0;
+          margin: .5rem 0;
+          border-bottom: 1px solid #444;
           :focus {
             border-bottom: 1px solid rgba(97, 205, 213, 0.6);
             box-shadow: 0px 3px 0px rgba(97, 205, 213, 0.2);

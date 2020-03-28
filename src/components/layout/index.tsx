@@ -2,6 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import HomeIcon from '@material-ui/icons/Home';
 
+import DogIcon from '../icon/DogIcon';
 import Modal from './Modal';
 import PhotoForm from '../form/PhotoForm';
 import SideMenu, { CreateButton, NavLink } from '../object/SideMenu';
@@ -28,6 +29,11 @@ export default (): React.ReactElement => {
           href="/"
           title="ホーム"
           Icon={HomeIcon}
+        />
+        <NavLink
+          href="/dogs"
+          title="犬小屋"
+          Icon={DogIcon}
         />
         <CreateButton
           label="写真を追加"

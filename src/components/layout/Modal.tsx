@@ -1,6 +1,9 @@
 import * as React from 'react';
 
+import clsx from 'clsx';
+
 type Props = {
+  className?: string;
   children: React.ReactNode;
   height?: string;
   isActive: boolean;
@@ -10,6 +13,7 @@ type Props = {
 };
 
 export default ({
+  className,
   children,
   height = '20rem',
   isActive,
@@ -21,8 +25,8 @@ export default ({
     <>
       {isActive && <div className="overlay" />}
       {isActive && (
-        <div className="modal shadow">
-          <h3>{title}</h3>
+        <div className={clsx('modal shadow', className)}>
+          <h2>{title}</h2>
           {children}
           <div
             className="btn-modal-close"
@@ -47,7 +51,7 @@ export default ({
           top: 4rem;
           left: calc((100vw - ${width}) / 2);
         }
-        h3 {
+        h2 {
           margin: 0 0 8px 0;
         }
         .btn-modal-close {

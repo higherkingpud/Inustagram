@@ -9,10 +9,10 @@ export type Photo = {
   userName: string;
 };
 
-
 export type Dog = {
+  bio: string;
   bread: string;
-  iconUrl: string;
   did: number;
+  iconUrl: string;
   name: string;
 };

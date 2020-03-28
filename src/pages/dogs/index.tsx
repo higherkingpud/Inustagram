@@ -2,19 +2,19 @@ import * as React from 'react';
 import Head from 'next/head';
 import HomeIcon from '@material-ui/icons/Home';
 import fetch from 'isomorphic-unfetch';
-import getAbsoluteUrl from '../../utils/getAbsoluteUrl';
 import { NextPageContext } from 'next';
-import { useRouter } from 'next/router';
 
 import DogCard from '../../components/object/DogCard';
+import DogForm from '../../components/object/DogForm';
+import DogIcon from '../../components/icon/DogIcon';
 import SideMenu, { NavLink, CreateButton } from '../../components/object/SideMenu';
+import getAbsoluteUrl from '../../utils/getAbsoluteUrl';
 import { Dog } from '../../types';
 
 const onMouseWheel = (e: React.WheelEvent<HTMLDivElement>): void => {
   if (e.deltaX === 0) {
     e.stopPropagation();
     e.preventDefault();
-    // noinspection JSSuspiciousNameCombination
     e.currentTarget.scrollBy(e.deltaY, 0);
   }
 };
@@ -24,7 +24,8 @@ type Props = {
 };
 
 const Dogs = ({ dogs }: Props): React.ReactElement => {
-  const router = useRouter();
+  const [dogToEdit, setDogToEdit] = React.useState<number | undefined>();
+  const [isCreateDog, toggleCreateDog] = React.useState(false);
   return (
     <>
       <Head><title>Inustagram</title></Head>
@@ -35,17 +36,35 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
           title="ホーム"
           Icon={HomeIcon}
         />
+        <NavLink
+          href="/dogs"
+          title="犬小屋"
+          Icon={DogIcon}
+        />
         <CreateButton
           label="イッヌを追加"
-          onClick={(): void => { router.push('/dogs/create'); }}
+          onClick={(): void => toggleCreateDog(true) }
         />
       </SideMenu>
+      {dogToEdit && (
+        <DogForm
+          onCancel={(): void => setDogToEdit(undefined)}
+          dog={dogs.find(d => d.did === dogToEdit)}
+        />
+      )}
+      {isCreateDog && <DogForm onCancel={(): void => toggleCreateDog(false)}/>}
       <div
         id="dog-list-container"
         className="dog-list-container flex"
         onWheel={onMouseWheel}>
         <div className="dog-list-inner flex">
-          {dogs.map(d => <DogCard key={d.did} {...d} />)}
+          {dogs.map(d => (
+            <DogCard
+              {...d}
+              key={d.did}
+              toEditMode={setDogToEdit}
+            />
+          ))}
         </div>
       </div>
       <style jsx>{`
@@ -60,14 +79,13 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
           float: right;
           overflow-x: auto;
         }
-        .dog-llist-inner {
-
+        .dog-list-inner {
+          padding: 0 1rem;
         }
       `}</style>
     </>
   );
 };
-
 
 Dogs.getInitialProps = async ({ req }: NextPageContext): Promise<Props> => {
   const baseUrl = getAbsoluteUrl(req);
