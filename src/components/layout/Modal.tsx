@@ -21,7 +21,7 @@ export default ({
     <>
       {isActive && <div className="overlay" />}
       {isActive && (
-        <div className="modal">
+        <div className="modal shadow">
           <h3>{title}</h3>
           {children}
           <div
@@ -36,7 +36,6 @@ export default ({
           background-color: #fff;
           border-radius: 4px;
           border: 2px solid #444;
-          box-shadow: 12px 6px 12px 2px rgba(0, 0, 0, .2), -12px 6px 12px 2px rgba(0, 0, 0, .2);
           top: 0;
           left: 0;
           margin: auto;

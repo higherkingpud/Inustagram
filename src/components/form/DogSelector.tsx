@@ -38,6 +38,7 @@ export default ({
           width: 40px;
           height: 40px;
           border-radius: 20px;
+          object-fit: cover;
         }
         img + img {
           margin-left: 8px;

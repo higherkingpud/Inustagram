@@ -28,7 +28,7 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
   return (
     <>
       <Head><title>Inustagram</title></Head>
-      <h2>イッヌ</h2>
+      <h1>イッヌ</h1>
       <SideMenu>
         <NavLink
           href="/"
@@ -44,17 +44,24 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
         id="dog-list-container"
         className="dog-list-container flex"
         onWheel={onMouseWheel}>
-        {dogs.map(d => <DogCard key={d.did} {...d} />)}
+        <div className="dog-list-inner flex">
+          {dogs.map(d => <DogCard key={d.did} {...d} />)}
+        </div>
       </div>
       <style jsx>{`
-        h2 {
+        h1 {
+          margin-top: 3rem;
           text-align: center;
         }
         .dog-list-container {
-          height: 40rem;
-          width: calc(100% - 280px);
+          border-left: 2px solid #444;
+          height: 44rem;
+          width: calc(100% - 300px);
           float: right;
           overflow-x: auto;
+        }
+        .dog-llist-inner {
+
         }
       `}</style>
     </>

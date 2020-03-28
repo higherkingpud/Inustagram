@@ -24,6 +24,7 @@ export default class MyDocument extends Document {
               display: none;
             }
             html {
+              box-sizing: border-box;
               font-size: 15px;
               font-family: 'Noto+Sans+JP' !important;
             }
@@ -64,6 +65,9 @@ export default class MyDocument extends Document {
               top: 0;
               width: 100vw;
               z-index: 2;
+            }
+            .shadow {
+              box-shadow: 12px 6px 12px 2px rgba(0, 0, 0, .2), -12px 6px 12px 2px rgba(0, 0, 0, .2);
             }
           `}</style>
         </Head>
