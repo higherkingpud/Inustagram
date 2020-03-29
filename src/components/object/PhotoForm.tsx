@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import DogSelector from './DogSelector';
-import ImageUploader from './ImageUploader';
-import InputText from './InputText';
+import DogSelector from '../form/DogSelector';
+import ImageUploader from '../form/ImageUploader';
+import InputText from '../form/InputText';
 import Loading from '../layout/Loading';
 import usePhotoCreation from '../../hooks/usePhotoCreation';
 
@@ -19,7 +19,7 @@ export default (): React.ReactElement => {
       <InputText
         value={hook.title}
         onChange={hook.onChangeTitle}
-        label="タイトルを入力してください"
+        label="タイトル"
       />
       <ImageUploader
         image={hook.image}

@@ -5,7 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import fetch from 'isomorphic-unfetch';
 
 import Layout from '../components/layout';
-import PhotoCard from '../components/layout/PhotoCard';
+import PhotoCard from '../components/object/PhotoCard';
 import Timeline from '../components/layout/Timeline';
 import getAbsoluteUrl from '../utils/getAbsoluteUrl';
 import useResource from '../hooks/useResource';

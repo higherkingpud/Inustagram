@@ -4,7 +4,7 @@ import HomeIcon from '@material-ui/icons/Home';
 
 import DogIcon from '../icon/DogIcon';
 import Modal from './Modal';
-import PhotoForm from '../form/PhotoForm';
+import PhotoForm from '../object/PhotoForm';
 import SideMenu, { CreateButton, NavLink } from '../object/SideMenu';
 
 export default (): React.ReactElement => {

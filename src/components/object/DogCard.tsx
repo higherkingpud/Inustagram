@@ -1,7 +1,7 @@
 import * as React from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 
-import { Dog } from '../../../types';
+import { Dog } from '../../types';
 
 type Props = Dog & {
   toEditMode: (did: number) => void;
