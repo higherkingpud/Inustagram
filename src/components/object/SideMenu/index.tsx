@@ -47,10 +47,10 @@ export default ({ children }: Props): React.ReactElement => {
           -webkit-box-pack: justify;
           height: 100%;
           justify-content: space-between;
-          margin-left: 1rem;
+          margin-left: 4rem;
           overflow-y: auto;
           padding: 0 20px;
-          width: 275px;
+          width: 236px;
         }
         .side-menu {
           -webkit-box-align: start;

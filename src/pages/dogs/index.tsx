@@ -29,7 +29,7 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
   return (
     <>
       <Head><title>Inustagram</title></Head>
-      <h1>イッヌ</h1>
+      <h1>犬小屋</h1>
       <SideMenu>
         <NavLink
           href="/"
