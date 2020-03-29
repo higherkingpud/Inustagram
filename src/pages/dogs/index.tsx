@@ -10,6 +10,7 @@ import DogIcon from '../../components/icon/DogIcon';
 import SideMenu, { NavLink, CreateButton } from '../../components/object/SideMenu';
 import getAbsoluteUrl from '../../utils/getAbsoluteUrl';
 import { Dog } from '../../types';
+import { StateInspector } from 'reinspect';
 
 const onMouseWheel = (e: React.WheelEvent<HTMLDivElement>): void => {
   if (e.deltaX === 0) {
@@ -29,44 +30,46 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
   return (
     <>
       <Head><title>Inustagram</title></Head>
-      <h1>犬小屋</h1>
-      <SideMenu>
-        <NavLink
-          href="/"
-          title="ホーム"
-          Icon={HomeIcon}
-        />
-        <NavLink
-          href="/dogs"
-          title="犬小屋"
-          Icon={DogIcon}
-        />
-        <CreateButton
-          label="イッヌを追加"
-          onClick={(): void => toggleCreateDog(true) }
-        />
-      </SideMenu>
-      {dogToEdit && (
-        <DogForm
-          onCancel={(): void => setDogToEdit(undefined)}
-          dog={dogs.find(d => d.did === dogToEdit)}
-        />
-      )}
-      {isCreateDog && <DogForm onCancel={(): void => toggleCreateDog(false)}/>}
-      <div
-        id="dog-list-container"
-        className="dog-list-container flex"
-        onWheel={onMouseWheel}>
-        <div className="dog-list-inner flex">
-          {dogs.map(d => (
-            <DogCard
-              {...d}
-              key={d.did}
-              toEditMode={setDogToEdit}
-            />
-          ))}
+      <StateInspector name="dogs">
+        <h1>犬小屋</h1>
+        <SideMenu>
+          <NavLink
+            href="/"
+            title="ホーム"
+            Icon={HomeIcon}
+          />
+          <NavLink
+            href="/dogs"
+            title="犬小屋"
+            Icon={DogIcon}
+          />
+          <CreateButton
+            label="イッヌを追加"
+            onClick={(): void => toggleCreateDog(true) }
+          />
+        </SideMenu>
+        {dogToEdit && (
+          <DogForm
+            onCancel={(): void => setDogToEdit(undefined)}
+            dog={dogs.find(d => d.did === dogToEdit)}
+          />
+        )}
+        {isCreateDog && <DogForm onCancel={(): void => toggleCreateDog(false)}/>}
+        <div
+          id="dog-list-container"
+          className="dog-list-container flex"
+          onWheel={onMouseWheel}>
+          <div className="dog-list-inner flex">
+            {dogs.map(d => (
+              <DogCard
+                {...d}
+                key={d.did}
+                toEditMode={setDogToEdit}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </StateInspector>
       <style jsx>{`
         h1 {
           margin-top: 3rem;

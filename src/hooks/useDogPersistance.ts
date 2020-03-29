@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { useRouter } from 'next/router';
+import  { useState } from 'reinspect';
 
 import uploadFile from '../utils/uploadFile';
 import { Dog } from '../types';
@@ -64,7 +65,7 @@ export default (dog?: Dog): [State, Handlers] => {
     bio: '',
     bread: '',
     ...dog,
-  });
+  }, 'useDogPersistance');
   useEffect(() => {
     const onSucceed = (): void => {
       setState(prev => ({ ...prev, isSubmitting: false }));
