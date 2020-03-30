@@ -36,8 +36,8 @@ const postDog = async (state: State): Promise<void> => {
     method: 'POST',
     body: JSON.stringify(createDogRequest),
   });
-  if (res.status !== 204) { throw new Error(await res.text()); }
-  return;
+  if (res.status === 201) { return; }
+  throw new Error(await res.text());
 };
 
 const patchDog = async (state: State): Promise<void> => {
@@ -51,7 +51,6 @@ const patchDog = async (state: State): Promise<void> => {
     body: JSON.stringify({ ...state, iconUrl }),
   });
   if (res.status === 204) { return; }
-  if (res.status === 201) { return; }
   throw new Error(await res.text());
 };
 
