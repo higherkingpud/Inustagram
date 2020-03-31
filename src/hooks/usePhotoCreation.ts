@@ -3,8 +3,8 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useState,
 } from 'react';
+import { useState } from 'reinspect';
 import fetch from 'isomorphic-unfetch';
 
 import uploadFile from '../utils/uploadFile';
@@ -43,7 +43,7 @@ export default (): State & Handlers & Context => {
     image: undefined,
     title: '',
     isSubmitting: false,
-  });
+  }, 'photo-creation');
   useEffect(() => {
     const onSucceed = (): void => {
       setState(prev => ({ ...prev, isSubmitting: false }));

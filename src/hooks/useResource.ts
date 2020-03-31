@@ -1,4 +1,5 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
+import { useState } from 'reinspect';
 import qs from 'qs';
 import ck from 'camelcase-keys';
 
@@ -14,8 +15,8 @@ export default <T>(
   endpoint: string,
   params?: object
 ): [Resource<T>, () => void] => {
-  const [resource, setResource] = useState<Resource<T>>(initial());
-  const [refreshCount, setCount] = useState<number>(0);
+  const [resource, setResource] = useState<Resource<T>>(initial(), 'useresource');
+  const [refreshCount, setCount] = useState<number>(0, `useresource-refresh`);
   const url = params ? `${endpoint}?${qs.stringify(params)}` : endpoint;
   useEffect((): void => {
     const fetchResource = async (): Promise<void> => {

@@ -1,44 +1,28 @@
 import * as React from 'react';
 import { NextPage, NextPageContext } from 'next';
-import CircularProgress from '@material-ui/core/CircularProgress';
-
+import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
 
-import Layout from '../components/layout';
-import PhotoCard from '../components/object/PhotoCard';
 import Timeline from '../components/layout/Timeline';
 import getAbsoluteUrl from '../utils/getAbsoluteUrl';
-import useResource from '../hooks/useResource';
-import { Photo, Dog } from '../types';
-import { PhotoCreationContext } from '../hooks/usePhotoCreation';
-import { Status } from '../utils/Resource';
+import { Dog } from '../types';
+import { StateInspector } from 'reinspect';
 
 type Props = {
   dogs: Dog[];
 };
 
-const comparePhotoDesc = (b: Photo,a: Photo): 1 | 0 | -1 => {
-  if (a.pid > b.pid) { return 1; }
-  if (a.pid === b.pid) { return 0; }
-  return -1;
-};
 
 const Index: NextPage<Props> = ({
   dogs,
 }: Props) => {
-  const [photosR, refreshTimeline] = useResource<Photo[]>('/api/photos');
   return (
-    <PhotoCreationContext.Provider value={{ dogs, userId: 1, refreshTimeline }}>
-      <Layout />
-      {photosR.status === Status.Loaded && (
-        <Timeline>
-          {photosR.value.sort(comparePhotoDesc).map(p =>
-            <PhotoCard {...p} key={p.pid} />
-          )}
-        </Timeline>
-      )}
-      {photosR.status === Status.Loading && (<CircularProgress />)}
-    </PhotoCreationContext.Provider>
+    <>
+      <Head><title>Inustagram</title></Head>
+      <StateInspector>
+        <Timeline dogs={dogs} />
+      </StateInspector>
+    </>
   );
 };
 

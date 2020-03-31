@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 import HomeIcon from '@material-ui/icons/Home';
+import { useState } from 'reinspect';
 
 import DogIcon from '../icon/DogIcon';
 import Modal from './Modal';
@@ -8,7 +9,7 @@ import PhotoForm from '../object/PhotoForm';
 import SideMenu, { CreateButton, NavLink } from '../object/SideMenu';
 
 export default (): React.ReactElement => {
-  const [isModalActive, setIsModalActive] = React.useState(false);
+  const [isModalActive, setIsModalActive] = useState(false, 'photo-creation-modal');
   const onClickNewPhotoButton = React.useCallback(() => {
     setIsModalActive(true);
   }, [setIsModalActive]);

@@ -2,6 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import HomeIcon from '@material-ui/icons/Home';
 import fetch from 'isomorphic-unfetch';
+import { StateInspector } from 'reinspect';
 import { NextPageContext } from 'next';
 
 import DogCard from '../../components/object/DogCard';
@@ -10,7 +11,6 @@ import DogIcon from '../../components/icon/DogIcon';
 import SideMenu, { NavLink, CreateButton } from '../../components/object/SideMenu';
 import getAbsoluteUrl from '../../utils/getAbsoluteUrl';
 import { Dog } from '../../types';
-import { StateInspector } from 'reinspect';
 
 const onMouseWheel = (e: React.WheelEvent<HTMLDivElement>): void => {
   if (e.deltaX === 0) {

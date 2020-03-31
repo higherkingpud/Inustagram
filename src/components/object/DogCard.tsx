@@ -35,7 +35,7 @@ export default ({
             <div className="dog-row-title">犬種</div>
             <div className="dog-row-value">{bread}</div>
           </div>
-          <text className="dog-bio">{bio}</text>
+          <div className="dog-bio">{bio}</div>
         </div>
       </div>
       <style jsx>{`
