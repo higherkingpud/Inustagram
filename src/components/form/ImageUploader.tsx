@@ -57,6 +57,7 @@ export default ({
           border: 2px solid #444;
           margin: auto;
           margin-bottom: 3rem;
+          object-fit: cover;
         }
         :global(.img-icon.MuiSvgIcon-root) {
           display: flex;
@@ -66,7 +67,10 @@ export default ({
           margin-bottom: 3rem;
         }
         @media(max-width: 479px) {
-          width: 80%;
+          img {
+            width: 80%;
+            max-height: 50%;
+          }
         }
       `}</style>
     </>
