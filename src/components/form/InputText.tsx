@@ -36,13 +36,22 @@ export default ({
           border-bottom: 1px solid #444;
           border: 0px;
           font-size: 1.4rem;
-          height: 2rem;
           width: 16rem;
           margin: .5rem 0;
           border-bottom: 1px solid #444;
           :focus {
             border-bottom: 1px solid rgba(97, 205, 213, 0.6);
             box-shadow: 0px 3px 0px rgba(97, 205, 213, 0.2);
+          }
+        }
+        @media(min-width: 480px) {
+          input {
+            height: 2rem;
+          }
+        }
+        @media(max-width: 479px) {
+          input {
+            height: 4rem;
           }
         }
       `}</style>

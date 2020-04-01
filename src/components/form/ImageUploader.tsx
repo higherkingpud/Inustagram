@@ -24,6 +24,7 @@ export default ({
     if(!image) { return undefined; }
     return URL.createObjectURL(image);
   }, [image]);
+
   React.useEffect(() => {
     if (!fileRef.current) {
       fileRef.current = document.createElement('input');
@@ -37,6 +38,7 @@ export default ({
       };
     }
   }, [fileRef, onChange]);
+
   return (
     <>
       {blobUrl || defaultSrc

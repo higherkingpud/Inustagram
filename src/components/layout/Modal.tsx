@@ -71,9 +71,9 @@ export default ({
         }
         @media(max-width: 479px) {
           .modal {
-            left: 0;
-            top: 0;
-            width: 100%;
+            left: .5rem;
+            top: 4rem;
+            width: calc(100vw - 1rem);
           }
           :global(.btn-modal-close) {
             top: 8px;

@@ -88,7 +88,7 @@ export default ({ dogs }: Props): React.ReactElement => {
           .timeline {
             top: 2.8rem;
             left: 0;
-            width: 100%;
+            width: 100vw;
             height: ${wheight};
           }
         }
