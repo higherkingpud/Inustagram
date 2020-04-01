@@ -35,12 +35,13 @@ export default ({ children }: Props): React.ReactElement => {
           align-items: flex-end;
           cursor: pointer;
           flex-grow: 1;
-          z-index: 3;
         }
         .side-menu-container1 {
           backface-visibility: hidden;
+          background-color: #9d8770;
           height: 100%;
           position: fixed;
+          z-index: 203;
           top: 0px;
         }
         .side-menu-container2 {

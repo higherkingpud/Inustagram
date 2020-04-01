@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import clsx from 'clsx';
+import CloseIcon from '@material-ui/icons/Close';
 
 type Props = {
   className?: string;
@@ -26,13 +27,12 @@ export default ({
       {isActive && <div className="overlay" />}
       {isActive && (
         <div className={clsx('modal shadow', className)}>
+          <CloseIcon
+            className="btn-modal-close"
+            onClick={onClose}
+          />
           <h2>{title}</h2>
           {children}
-          <div
-            className="btn-modal-close"
-            onClick={onClose}>
-          close
-          </div>
         </div>
       )}
       <style jsx>{`
@@ -46,28 +46,38 @@ export default ({
           min-height: ${height};
           padding: 8px 1rem;
           position: fixed;
-          width: ${width};
           z-index: 200;
           top: 4rem;
-          left: calc((100vw - ${width}) / 2);
         }
         h2 {
           margin: 0 0 8px 0;
         }
-        .btn-modal-close {
+        :global(.btn-modal-close) {
           top: 1rem;
-          border-radius: 1rem;
-          background-color: #444;
-          color: #fff;
-          width: 7rem;
+          fill: #444;
           height: 2rem;
           z-index: 1000;
-          padding: 4px 2rem;
           text-align: center;
           position: absolute;
           bottom: 1rem;
           right: 1rem;
           cursor: pointer;
+        }
+        @media(min-width: 480px) {
+          .modal {
+            width: ${width};
+            left: calc((100vw - ${width}) / 2);
+          }
+        }
+        @media(max-width: 479px) {
+          .modal {
+            left: 0;
+            top: 0;
+            width: 100%;
+          }
+          :global(.btn-modal-close) {
+            top: 8px;
+          }
         }
       `}</style>
     </>

@@ -6,6 +6,7 @@ type Props = {
 };
 
 const match = (query: string): boolean => {
+  if (typeof window === 'undefined') { return true; }
   return window.matchMedia(query).matches;
 };
 
@@ -16,6 +17,7 @@ export default ({
   const [isMatched, setMatched] = React.useState(match(query));
 
   React.useEffect(() => {
+    if (typeof window === 'undefined') { return; }
     const onResize = (): void => {
       setMatched(match(query));
     };

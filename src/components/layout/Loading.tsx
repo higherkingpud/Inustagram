@@ -13,6 +13,14 @@ export default ({ message }: Props): React.ReactElement => {
         <CircularProgress />
         {message}
       </div>
+      <style jsx>{`
+        .loading-message {
+          position: fixed;
+          z-index: 400;
+          top: calc(50vh - 2rem);
+          left: calc(50vw - 2rem);
+        }
+      `}</style>
     </>
   );
 };

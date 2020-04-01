@@ -1,16 +1,19 @@
 import * as React from 'react';
 import PhotoIcon from '@material-ui/icons/Photo';
+import clsx from 'clsx';
 
 type Props = {
   defaultSrc?: string;
   image?: File;
   onChange: (image: File) => void;
+  className?: string;
 };
 
 export default ({
   defaultSrc,
   image,
   onChange,
+  className,
 }: Props): React.ReactElement => {
   const fileRef = React.useRef(null) as React.MutableRefObject<HTMLInputElement | null>;
   const onClick = React.useCallback(() => {
@@ -38,13 +41,13 @@ export default ({
     <>
       {blobUrl || defaultSrc
         ? <img
-          className="flex"
+          className={clsx('flex', className)}
           src={blobUrl ?? defaultSrc}
           onClick={onClick}
           width={360}
         />
         : <PhotoIcon
-          className="flex img-icon"
+          className={clsx('flex', 'img-icon', className)}
           onClick={onClick}
         />
       }
@@ -61,6 +64,9 @@ export default ({
           margin: auto;
           margin-top: 1rem;
           margin-bottom: 3rem;
+        }
+        @media(max-width: 479px) {
+          width: 80%;
         }
       `}</style>
     </>
