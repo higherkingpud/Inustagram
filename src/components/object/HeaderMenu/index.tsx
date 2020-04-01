@@ -23,6 +23,7 @@ export default ({
   }, [onClickCreateButton]);
   return (
     <>
+      {isActive && (<div className="overlay" />)}
       <header role="banner" className="header">
         <div className="header-menu">
           <PetsIcon onClick={onClickPetsIcon}/>
@@ -55,7 +56,7 @@ export default ({
           opacity: 1;
           position: fixed;
           width: 100vw;
-          z-index: 100;
+          z-index: 200;
           :global(.MuiSvgIcon-root) {
             margin: 8px;
           }

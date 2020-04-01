@@ -13,7 +13,9 @@ export default class MyDocument extends Document {
             // href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
             href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,600&display=swap"
           />
+          <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
           <style>{`
+            @charset &quot;UTF-8&quot;;
             * {
               box-sizing: border-box;
             }
@@ -58,7 +60,7 @@ export default class MyDocument extends Document {
               height: 100vh;
               left: 0;
               opacity: 0.3;
-              position: absolute;
+              position: fixed;
               top: 0;
               width: 100vw;
               z-index: 2;

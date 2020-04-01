@@ -46,7 +46,7 @@ export default ({
           min-height: ${height};
           padding: 8px 1rem;
           position: fixed;
-          z-index: 200;
+          z-index: 204;
           top: 4rem;
         }
         h2 {
