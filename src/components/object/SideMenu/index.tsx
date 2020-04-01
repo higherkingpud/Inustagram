@@ -8,11 +8,14 @@ type Props = {
   children: React.ReactNode;
 };
 
-export default ({ children }: Props): React.ReactElement => {
+export default React.forwardRef((
+  { children }: Props,
+  ref: React.Ref<HTMLDivElement>,
+): React.ReactElement => {
   return (
     <>
       <header role="banner" className="header">
-        <div className="side-menu-container1">
+        <div className="side-menu-container1" ref={ref}>
           <div className="side-menu-container2">
             <div className="side-menu">
               <div className="side-menu-title">
@@ -80,4 +83,4 @@ export default ({ children }: Props): React.ReactElement => {
       `}</style>
     </>
   );
-};
+});

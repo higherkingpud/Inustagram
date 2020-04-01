@@ -14,6 +14,7 @@ export default ({
   onClickCreateButton
 }: Props): React.ReactElement => {
   const [isActive, toggleActive] = useState(false, 'header-menu');
+  const sideMenuRef = React.useRef<HTMLDivElement>({} as HTMLDivElement);
   const onClickPetsIcon = React.useCallback(() => {
     toggleActive(true);
   }, [toggleActive]);
@@ -21,6 +22,18 @@ export default ({
     toggleActive(false);
     onClickCreateButton();
   }, [onClickCreateButton]);
+
+  React.useEffect(() => {
+    const onClickBody = (event: MouseEvent): void => {
+      if (isActive
+        && sideMenuRef.current
+        && sideMenuRef.current.contains(event.target as Node)){ return; }
+      toggleActive(false);
+    };
+    document.body.addEventListener('click', onClickBody);
+    return (): void => document.body.removeEventListener('click', onClickBody);
+  }, [sideMenuRef, isActive]);
+
   return (
     <>
       {isActive && (<div className="overlay" />)}
@@ -29,7 +42,7 @@ export default ({
           <PetsIcon onClick={onClickPetsIcon}/>
         </div>
         {isActive && (
-          <SideMenu>
+          <SideMenu ref={sideMenuRef}>
             <NavLink
               href="/"
               title="ホーム"
