@@ -1,21 +1,25 @@
 import * as React from 'react';
 import PetsIcon from '@material-ui/icons/Pets';
+import clsx from 'clsx';
 
 export { default as CreateButton } from './CreateButton';
 export { default as NavLink } from './NavLink';
 
 type Props = {
   children: React.ReactNode;
+  className?: string;
 };
 
 export default React.forwardRef((
-  { children }: Props,
+  { children, className }: Props,
   ref: React.Ref<HTMLDivElement>,
 ): React.ReactElement => {
   return (
     <>
       <header role="banner" className="header">
-        <div className="side-menu-container1" ref={ref}>
+        <div
+          className={clsx('side-menu-container1', className)}
+          ref={ref}>
           <div className="side-menu-container2">
             <div className="side-menu">
               <div className="side-menu-title">

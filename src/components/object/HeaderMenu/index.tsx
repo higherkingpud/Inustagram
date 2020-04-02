@@ -61,9 +61,15 @@ export default ({
         )}
       </header>
       <style jsx>{`
+          @media(min-width: 480px) {
+            .header,
+            .header-menu {
+              display: none;
+            }
+          }
         .header-menu {
           background-color: #9d8770;
-          border-bottom: 2px solid #444;
+          border-bottom: 2px solid #444 !important;
           display: flex;
           height: 2.8rem;
           opacity: 1;

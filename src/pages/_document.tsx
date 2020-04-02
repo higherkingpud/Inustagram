@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width,initial-scale=1" />
+          <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
           <link
             rel="stylesheet"
             // href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -15,7 +15,6 @@ export default class MyDocument extends Document {
           />
           <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
           <style>{`
-            @charset &quot;UTF-8&quot;;
             * {
               box-sizing: border-box;
             }

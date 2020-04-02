@@ -5,7 +5,6 @@ import { useState } from 'reinspect';
 
 import DogIcon from '../icon/DogIcon';
 import HeaderMenu from '../object/HeaderMenu';
-import Media from './Media';
 import Modal from './Modal';
 import PhotoCard from '../object/PhotoCard';
 import PhotoForm from '../object/PhotoForm';
@@ -44,27 +43,23 @@ export default ({ dogs }: Props): React.ReactElement => {
         onClose={onCloseModal}>
         <PhotoForm />
       </Modal>
-      <Media query="(min-width:480px)">
-        <SideMenu>
-          <NavLink
-            href="/"
-            title="ホーム"
-            Icon={HomeIcon}
-          />
-          <NavLink
-            href="/dogs"
-            title="犬小屋"
-            Icon={DogIcon}
-          />
-          <CreateButton
-            label="写真を追加"
-            onClick={onClickNewPhotoButton}
-          />
-        </SideMenu>
-      </Media>
-      <Media query="(max-width: 479px)">
-        <HeaderMenu onClickCreateButton={onClickNewPhotoButton} />
-      </Media>
+      <SideMenu className="default-side-menu">
+        <NavLink
+          href="/"
+          title="ホーム"
+          Icon={HomeIcon}
+        />
+        <NavLink
+          href="/dogs"
+          title="犬小屋"
+          Icon={DogIcon}
+        />
+        <CreateButton
+          label="写真を追加"
+          onClick={onClickNewPhotoButton}
+        />
+      </SideMenu>
+      <HeaderMenu onClickCreateButton={onClickNewPhotoButton} />
       <div className="timeline">
         {photosR.status === Status.Loading && (
           <CircularProgress />
@@ -82,9 +77,11 @@ export default ({ dogs }: Props): React.ReactElement => {
           overflow-y: auto;
           position: absolute;
           align-items: center;
-          width: 44rem;
         }
         @media(max-width: 479px) {
+          :global(.default-side-menu) {
+            display: none;
+          }
           .timeline {
             top: 2.8rem;
             left: 0;
@@ -94,9 +91,10 @@ export default ({ dogs }: Props): React.ReactElement => {
         }
         @media(min-width: 480px) {
           .timeline {
-            border: 2px solid #444;
             border-width: 0 2px;
+            border: 2px solid #444;
             left: 24rem;
+            width: 44rem;
           }
         }
       `}</style>
