@@ -40,6 +40,7 @@ export default ({
       <header role="banner" className="header">
         <div className="header-menu">
           <PetsIcon onClick={onClickPetsIcon}/>
+          <div className="header-title">Inustagram</div>
         </div>
         {isActive && (
           <SideMenu ref={sideMenuRef}>
@@ -61,23 +62,26 @@ export default ({
         )}
       </header>
       <style jsx>{`
-          @media(min-width: 480px) {
-            .header,
-            .header-menu {
-              display: none;
-            }
+        @media(min-width: 480px) {
+          .header,
+          .header-menu {
+            display: none;
           }
+        }
+        .header-title {
+          font-size: 30px;
+        }
         .header-menu {
           background-color: #9d8770;
           border-bottom: 2px solid #444 !important;
           display: flex;
-          height: 2.8rem;
+          height: 48px;
           opacity: 1;
           position: fixed;
           width: 100vw;
           z-index: 200;
           :global(.MuiSvgIcon-root) {
-            margin: 8px;
+            margin: 10px;
           }
         }
       `}</style>
