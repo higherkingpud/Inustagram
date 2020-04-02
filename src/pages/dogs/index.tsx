@@ -8,6 +8,7 @@ import { NextPageContext } from 'next';
 import DogCard from '../../components/object/DogCard';
 import DogForm from '../../components/object/DogForm';
 import DogIcon from '../../components/icon/DogIcon';
+import Media from '../../components/layout/Media';
 import SideMenu, { NavLink, CreateButton } from '../../components/object/SideMenu';
 import getAbsoluteUrl from '../../utils/getAbsoluteUrl';
 import { Dog } from '../../types';
@@ -32,22 +33,24 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
       <Head><title>Inustagram</title></Head>
       <StateInspector name="dogs">
         <h1>犬小屋</h1>
-        <SideMenu>
-          <NavLink
-            href="/"
-            title="ホーム"
-            Icon={HomeIcon}
-          />
-          <NavLink
-            href="/dogs"
-            title="犬小屋"
-            Icon={DogIcon}
-          />
-          <CreateButton
-            label="イッヌを追加"
-            onClick={(): void => toggleCreateDog(true) }
-          />
-        </SideMenu>
+        <Media query="(min-width: 480px)">
+          <SideMenu>
+            <NavLink
+              href="/"
+              title="ホーム"
+              Icon={HomeIcon}
+            />
+            <NavLink
+              href="/dogs"
+              title="犬小屋"
+              Icon={DogIcon}
+            />
+            <CreateButton
+              label="イッヌを追加"
+              onClick={(): void => toggleCreateDog(true) }
+            />
+          </SideMenu>
+        </Media>
         {dogToEdit && (
           <DogForm
             onCancel={(): void => setDogToEdit(undefined)}

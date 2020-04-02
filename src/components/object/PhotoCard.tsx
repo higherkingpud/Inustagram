@@ -5,7 +5,7 @@ import { Photo } from '../../types';
 type Props = Photo & {
 };
 
-export default ({ 
+export default ({
   url,
   title,
 }: Props): React.ReactElement => {
@@ -18,13 +18,19 @@ export default ({
       <style jsx>{`
         .photo-card {
           width: 100%;
-          padding: 3px 2rem;
+          padding: 2rem;
           height: fit-content;
+          border-bottom: 2px solid #444 !important;
+        }
+        h3.photo-title {
+          margin-top: 0;
+          margin-bottom: 4px;
         }
         img {
           border-radius: 1rem;
+          max-height: 12rem;
+          object-fit: cover;
           width: 100%;
-          max-height: 30rem;
         }
       `}</style>
     </>
