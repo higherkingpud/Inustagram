@@ -7,11 +7,13 @@ import DogIcon from '../../icon/DogIcon';
 import SideMenu, { NavLink, CreateButton } from '../SideMenu';
 
 type Props = {
+  createButtonLabel: string;
   onClickCreateButton: () => void;
 };
 
 export default ({
-  onClickCreateButton
+  onClickCreateButton,
+  createButtonLabel,
 }: Props): React.ReactElement => {
   const [isActive, toggleActive] = useState(false, 'header-menu');
   const sideMenuRef = React.useRef<HTMLDivElement>({} as HTMLDivElement);
@@ -55,7 +57,7 @@ export default ({
               Icon={DogIcon}
             />
             <CreateButton
-              label="写真を追加"
+              label={createButtonLabel}
               onClick={onClickCreateButton_}
             />
           </SideMenu>

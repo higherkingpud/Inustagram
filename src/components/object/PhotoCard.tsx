@@ -28,9 +28,14 @@ export default ({
         }
         img {
           border-radius: 1rem;
-          max-height: 12rem;
           object-fit: cover;
           width: 100%;
+          max-height: 24rem;
+        }
+        @media (max-width: 479px) {
+          img {
+            max-height: 12rem;
+          }
         }
       `}</style>
     </>

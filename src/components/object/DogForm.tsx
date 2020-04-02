@@ -65,28 +65,37 @@ export default ({
         </div>
       </div>
       <style jsx>{`
-        .dog-form {
-          background-color: #eee;
-          border-radius: 1rem;
-          height: 48rem;
-          left: calc((100vw - 24rem) / 2);
-          margin: 1rem 2rem;
-          min-width: 24rem;
-          padding: 2rem 3rem;
-          position: fixed;
-          top: 2rem;
-          width: 32rem;
-          z-index: 200;
+        @media(min-width: 480px) {
+          .dog-form {
+            background-color: #eee;
+            border-radius: 1rem;
+            height: 48rem;
+            left: calc((100vw - 24rem) / 2);
+            margin: 1rem 2rem;
+            min-width: 24rem;
+            padding: 2rem 3rem;
+            position: fixed;
+            top: 2rem;
+            width: 32rem;
+            z-index: 200;
+          }
+          .dog-form :global(img) {
+            border-radius: 10rem;
+            height: 20rem;
+            margin-bottom: 0;
+            min-height: 20rem;
+            object-fit: cover;
+            width: 20rem;
+            border: 3px solid #444;
+          }
         }
-        .dog-form :global(img) {
-          border-radius: 10rem;
-          height: 20rem;
-          margin-bottom: 0;
-          min-height: 20rem;
-          object-fit: cover;
-          width: 20rem;
-          border: 3px solid #444;
-          h3 {
+        @media(max-width: 479px){
+          .dog-form {
+            position: fixed;
+            width: 100vw;
+            z-index: 300;
+            background-color: #fff;
+            padding: 1rem;
           }
         }
         :global(input.dog-form-input) {

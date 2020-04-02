@@ -5,6 +5,7 @@ import fetch from 'isomorphic-unfetch';
 import { StateInspector } from 'reinspect';
 import { NextPageContext } from 'next';
 
+import HeaderMenu from '../../components/object/HeaderMenu';
 import DogCard from '../../components/object/DogCard';
 import DogForm from '../../components/object/DogForm';
 import DogIcon from '../../components/icon/DogIcon';
@@ -32,8 +33,8 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
     <>
       <Head><title>Inustagram</title></Head>
       <StateInspector name="dogs">
-        <h1>犬小屋</h1>
         <Media query="(min-width: 480px)">
+          <h1>犬小屋</h1>
           <SideMenu>
             <NavLink
               href="/"
@@ -50,6 +51,12 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
               onClick={(): void => toggleCreateDog(true) }
             />
           </SideMenu>
+        </Media>
+        <Media query="(max-width: 479px)">
+          <HeaderMenu
+            createButtonLabel="犬を追加"
+            onClickCreateButton={(): void => toggleCreateDog(true)}
+          />
         </Media>
         {dogToEdit && (
           <DogForm
@@ -79,14 +86,28 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
           text-align: center;
         }
         .dog-list-container {
-          border-left: 2px solid #444;
-          height: 44rem;
-          width: calc(100% - 300px);
-          float: right;
           overflow-x: auto;
         }
         .dog-list-inner {
           padding: 0 1rem;
+        }
+        @media(min-width: 480px) {
+          .dog-list-container {
+            height: 44rem;
+            float: right;
+            border-left: 2px solid #444;
+            width: calc(100% - 300px);
+          }
+        }
+        @media(max-width: 479px) {
+          .dog-list-container {
+            top: 4rem;
+            height: 100vh;
+            max-width: 100vw;
+          }
+          .dog-list-inner {
+
+          }
         }
       `}</style>
     </>

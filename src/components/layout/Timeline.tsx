@@ -59,7 +59,10 @@ export default ({ dogs }: Props): React.ReactElement => {
           onClick={onClickNewPhotoButton}
         />
       </SideMenu>
-      <HeaderMenu onClickCreateButton={onClickNewPhotoButton} />
+      <HeaderMenu
+        createButtonLabel="写真を追加"
+        onClickCreateButton={onClickNewPhotoButton}
+      />
       <div className="timeline">
         {photosR.status === Status.Loading && (
           <CircularProgress />
