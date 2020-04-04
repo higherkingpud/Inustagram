@@ -101,9 +101,9 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
         }
         @media(max-width: 479px) {
           .dog-list-container {
-            top: 4rem;
             height: 100vh;
             max-width: 100vw;
+            padding-top: 4rem;
           }
           .dog-list-inner {
 
