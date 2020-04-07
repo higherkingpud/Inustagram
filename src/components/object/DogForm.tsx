@@ -7,15 +7,17 @@ import useDogPersistance from '../../hooks/useDogPersistance';
 import { Dog } from '../../types';
 
 type Props = {
+  uid: number;
   dog?: Dog;
   onCancel: () => void;
 };
 
 export default ({
+  uid,
   dog,
   onCancel,
 }: Props): React.ReactElement => {
-  const [state, { onChangeBio, ...handlers }] = useDogPersistance(dog);
+  const [state, { onChangeBio, ...handlers }] = useDogPersistance(uid, dog);
   const onChangeBioTextarea = React.useCallback(
     (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
       onChangeBio(event.currentTarget.value);

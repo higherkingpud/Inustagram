@@ -22,7 +22,7 @@ type Handlers = {
   onSubmit: () => void;
 };
 
-const postDog = async (state: State): Promise<void> => {
+const postDog = async (uid: number, state: State): Promise<void> => {
   if (!state.image) { throw new Error('アイコンが設定されていません'); }
   const cdIconUrl = await uploadFile(state.image);
   const createDogRequest = {
@@ -30,7 +30,7 @@ const postDog = async (state: State): Promise<void> => {
     cdBread: state.bread,
     cdIconUrl,
     cdName: state.name,
-    cdOwnerId: 1,
+    cdOwnerId: uid,
   };
   const res = await fetch('/api/dogs', {
     method: 'POST',
@@ -54,7 +54,7 @@ const patchDog = async (state: State): Promise<void> => {
   throw new Error(await res.text());
 };
 
-export default (dog?: Dog): [State, Handlers] => {
+export default (uid: number, dog?: Dog): [State, Handlers] => {
   const router = useRouter();
   const [state, setState] = useState<State>({
     isSubmitting: false,
@@ -77,9 +77,9 @@ export default (dog?: Dog): [State, Handlers] => {
     if(state.isSubmitting) {
       state.isEdit
         ? patchDog(state).then(onSucceed).catch(onFailure)
-        : postDog(state).then(onSucceed).catch(onFailure);
+        : postDog(uid, state).then(onSucceed).catch(onFailure);
     }
-  }, [state, router]);
+  }, [state, router, uid]);
   const handlers = {
     onChangeName: useCallback((name: string) => {
       setState(prev => ({ ...prev, name }));

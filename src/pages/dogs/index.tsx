@@ -28,7 +28,7 @@ type Props = {
   user: User;
 };
 
-const Dogs = ({ dogs }: Props): React.ReactElement => {
+const Dogs = ({ dogs, user }: Props): React.ReactElement => {
   const [dogToEdit, setDogToEdit] = React.useState<number | undefined>();
   const [isCreateDog, toggleCreateDog] = React.useState(false);
   return (
@@ -62,11 +62,17 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
         </Media>
         {dogToEdit && (
           <DogForm
+            uid={user.uid}
             onCancel={(): void => setDogToEdit(undefined)}
             dog={dogs.find(d => d.did === dogToEdit)}
           />
         )}
-        {isCreateDog && <DogForm onCancel={(): void => toggleCreateDog(false)}/>}
+        {isCreateDog && (
+          <DogForm
+            uid={user.uid}
+            onCancel={(): void => toggleCreateDog(false)}
+          />
+        )}
         <div
           id="dog-list-container"
           className="dog-list-container flex"
