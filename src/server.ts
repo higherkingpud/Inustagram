@@ -9,7 +9,7 @@ import { parse } from 'url';
 const app = next({ dev: process.env.NODE_ENV !== 'production' });
 const handle = app.getRequestHandler();
 
-const DEFAULT_API_BASE_URL = 'http://34.85.71.200:3000';
+const DEFAULT_API_BASE_URL = 'http://34.85.87.212:3000';
 
 const BUCKET_ID = 'inustagram-images';
 

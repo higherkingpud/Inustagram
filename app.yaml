@@ -8,5 +8,5 @@ resources:
   disk_size_gb: 20
 env_variables:
   NODE_ENV: 'production'
-  API_BASE_URL: 'http://34.85.71.200:3000'
+  API_BASE_URL: 'http://34.85.87.212:3000'
   GCLOUD_STORAGE_BUCKET: 'inustagram-images'
