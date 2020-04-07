@@ -119,7 +119,7 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
 Dogs.getInitialProps = async (ctx: NextPageContext): Promise<Props> => {
   const user = await authorize(ctx);
   const baseUrl = getAbsoluteUrl(ctx.req);
-  const dogsRes = await fetch(`${baseUrl}/api/${user.uid}/dogs`);
+  const dogsRes = await fetch(`${baseUrl}/api/users/${user.uid}/dogs`);
   const dogs = await dogsRes.json();
   return { dogs, user };
 };

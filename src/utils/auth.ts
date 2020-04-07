@@ -15,7 +15,7 @@ export const redirect = (res: NextPageContext['res']): void => {
 export default async (ctx: NextPageContext): Promise<User> => {
   const baseUrl = getAbsoluteUrl(ctx.req);
   const { token } = parseCookies(ctx);
-  const res = await fetch(`${baseUrl}/auth?token=${token}`);
+  const res = await fetch(`${baseUrl}/api/auth?token=${token}`);
   if (res.status !== 200) { redirect(ctx.res); }
   return await res.json() as User;
 };

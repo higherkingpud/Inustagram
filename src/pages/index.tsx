@@ -4,6 +4,7 @@ import Head from 'next/head';
 import fetch from 'isomorphic-unfetch';
 
 import Timeline from '../components/layout/Timeline';
+import auth from '../utils/auth';
 import getAbsoluteUrl from '../utils/getAbsoluteUrl';
 import { Dog } from '../types';
 import { StateInspector } from 'reinspect';
@@ -26,9 +27,10 @@ const Index: NextPage<Props> = ({
   );
 };
 
-Index.getInitialProps = async ({ req }: NextPageContext): Promise<Props> => {
-  const baseUrl = getAbsoluteUrl(req);
-  const dogsRes = await fetch(`${baseUrl}/api/dogs`);
+Index.getInitialProps = async (ctx: NextPageContext): Promise<Props> => {
+  const user = await auth(ctx);
+  const baseUrl = getAbsoluteUrl(ctx.req);
+  const dogsRes = await fetch(`${baseUrl}/api/users/${user.uid}/dogs`);
   const dogs = await dogsRes.json();
   return { dogs };
 };
