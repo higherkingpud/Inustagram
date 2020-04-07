@@ -4,11 +4,11 @@ import clsx from 'clsx';
 import CloseIcon from '@material-ui/icons/Close';
 
 type Props = {
-  className?: string;
   children: React.ReactNode;
+  className?: string;
   height?: string;
   isActive: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   title: string;
   width?: string;
 };
@@ -27,10 +27,12 @@ export default ({
       {isActive && <div className="overlay" />}
       {isActive && (
         <div className={clsx('modal shadow', className)}>
-          <CloseIcon
-            className="btn-modal-close"
-            onClick={onClose}
-          />
+          {onClose && (
+            <CloseIcon
+              className="btn-modal-close"
+              onClick={onClose}
+            />
+          )}
           <h2>{title}</h2>
           {children}
         </div>
