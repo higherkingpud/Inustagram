@@ -16,3 +16,8 @@ export type Dog = {
   iconUrl: string;
   name: string;
 };
+
+export type User = {
+  uid: number;
+  name: string;
+};

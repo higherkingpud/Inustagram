@@ -1,4 +1,5 @@
 import Multer from 'multer';
+import cookie from 'cookie';
 import express from 'express';
 import next from 'next';
 import { Storage } from '@google-cloud/storage';
@@ -43,6 +44,14 @@ const bucket = storage.bucket(BUCKET_ID);
     target: apiBaseUrl,
     changeOrigin: true,
     pathRewrite: { '/api': '/' },
+    onProxyReq: (proxyReq, req): void => {
+      const cookie_ = req.headers.cookie;
+      if (typeof cookie_ === 'string') {
+        const tokenEscaped = cookie.parse(cookie_).token as string;
+        const token = unescape(tokenEscaped);
+        return proxyReq.setHeader('authorization', `Bearer ${token}`);
+      }
+    },
   }));
 
   server.use(express.json({ limit: '10mb' }));

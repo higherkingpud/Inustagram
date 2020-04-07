@@ -5,14 +5,15 @@ import fetch from 'isomorphic-unfetch';
 import { StateInspector } from 'reinspect';
 import { NextPageContext } from 'next';
 
-import HeaderMenu from '../../components/object/HeaderMenu';
 import DogCard from '../../components/object/DogCard';
 import DogForm from '../../components/object/DogForm';
 import DogIcon from '../../components/icon/DogIcon';
+import HeaderMenu from '../../components/object/HeaderMenu';
 import Media from '../../components/layout/Media';
 import SideMenu, { NavLink, CreateButton } from '../../components/object/SideMenu';
+import authorize from '../../utils/auth';
 import getAbsoluteUrl from '../../utils/getAbsoluteUrl';
-import { Dog } from '../../types';
+import { Dog, User } from '../../types';
 
 const onMouseWheel = (e: React.WheelEvent<HTMLDivElement>): void => {
   if (e.deltaX === 0) {
@@ -24,6 +25,7 @@ const onMouseWheel = (e: React.WheelEvent<HTMLDivElement>): void => {
 
 type Props = {
   dogs: Dog[];
+  user: User;
 };
 
 const Dogs = ({ dogs }: Props): React.ReactElement => {
@@ -114,11 +116,12 @@ const Dogs = ({ dogs }: Props): React.ReactElement => {
   );
 };
 
-Dogs.getInitialProps = async ({ req }: NextPageContext): Promise<Props> => {
-  const baseUrl = getAbsoluteUrl(req);
-  const dogsRes = await fetch(`${baseUrl}/api/dogs`);
+Dogs.getInitialProps = async (ctx: NextPageContext): Promise<Props> => {
+  const user = await authorize(ctx);
+  const baseUrl = getAbsoluteUrl(ctx.req);
+  const dogsRes = await fetch(`${baseUrl}/api/${user.uid}/dogs`);
   const dogs = await dogsRes.json();
-  return { dogs };
+  return { dogs, user };
 };
 
 export default Dogs;
