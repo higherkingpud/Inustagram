@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 import { setCookie } from 'nookies';
 import { useRouter } from 'next/router';
@@ -78,6 +79,9 @@ export default (): React.ReactElement => {
             onChange={onChangePassword}
           />
         </div>
+        <Link href="/signup">
+          <a>アカウント登録</a>
+        </Link>
         <Button onClick={onSubmit} label="ログイン"/>
       </Modal>
       <style jsx>{`
